@@ -64,7 +64,7 @@ A Wrapper Client for Google Spreadsheet API (Sheets API)
 ### Update a row
 
 ```
-	// --- Update
+	// Update
 	row.Cols["price_yen"] = "4000"
 	err = row.Update()
 	if err != nil {
@@ -75,17 +75,21 @@ A Wrapper Client for Google Spreadsheet API (Sheets API)
 ### Create a new row
 
 ```
+	// Build a new row struct
 	b1 := book.NewRow()
+
+	// Fill-in field values
 	b1.Cols = map[string]string{
 		"id":         "mybook0003",
 		"name":       "Slack: Getting Past Burnout, Busywork, and the Myth of Total Efficiency",
 		"author":     "Tom DeMarco",
 		"price_yen":  "2800",
 	}
+
+	// Insert into spreadsheet
 	err = b1.Insert()
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-}
 ```
 
